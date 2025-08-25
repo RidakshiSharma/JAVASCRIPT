@@ -1,6 +1,3 @@
-📘 README
-
-
 🚀 Projects Included
 This repository contains three interactive JavaScript mini projects with HTML & CSS:
 
