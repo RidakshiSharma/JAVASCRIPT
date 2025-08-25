@@ -4,11 +4,11 @@
 This repository contains three interactive JavaScript mini projects with HTML & CSS:
 
 
-📝 Live Character Counter
+1.📝 Live Character Counter
 
-🛍️ Dynamic Product Filter with Dropdown
+2.🛍️ Dynamic Product Filter with Dropdown
 
-🎨 SVG Drawing Tool
+3.🎨 SVG Drawing Tool
 
 Each project is self-contained in its own HTML file. Open them in a browser to see them in action.
 
