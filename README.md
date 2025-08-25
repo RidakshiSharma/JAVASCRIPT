@@ -14,6 +14,8 @@ Each project is self-contained in its own HTML file. Open them in a browser to s
 
 
 1️⃣ Live Character Counter
+
+
 ✨ Features:
 
 Beautiful animated gradient background.
@@ -28,6 +30,8 @@ Includes a progress bar that fills up as you type:
 The badge counter animates (bump effect) on every keystroke.
 
 2️⃣ Dynamic Product Filter with Dropdown
+
+
 ✨ Features:
 
 Gradient background with centered product list.
@@ -37,6 +41,8 @@ Selecting a category hides unrelated products.
 Responsive product cards with hover animations.
 
 3️⃣ SVG Drawing Tool
+
+
 ✨ Features:
 
 Interactive white canvas (SVG element).
