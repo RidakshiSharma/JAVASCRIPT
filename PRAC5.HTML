@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Product Filter with Dropdown</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      padding: 30px;
+      text-align: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #fff;
+      margin-bottom: 10px;
+      font-size: 32px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      color: #fff;
+      margin: 15px 0;
+      font-size: 22px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    select {
+      padding: 10px 15px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      transition: 0.3s;
+    }
+
+    select:hover {
+      transform: scale(1.05);
+    }
+
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .product {
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      width: 200px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.2);
+    }
+
+    .product h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #444;
+    }
+
+    .product p {
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Product List</h1>
+  <h2>Filter by Category</h2>
+
+  <!-- Dropdown -->
+  <select id="filter">
+    <option value="all">All</option>
+    <option value="shoes">Shoes</option>
+    <option value="shirts">Shirts</option>
+    <option value="gadgets">Gadgets</option>
+    <option value="books">Books</option>
+  </select>
+
+  <!-- Product List -->
+  <div class="product-list">
+    <div class="product" data-category="shoes">
+      <h3>Running Shoes</h3>
+      <p>Category: Shoes</p>
+    </div>
+    <div class="product" data-category="shoes">
+      <h3>Sports Shoes</h3>
+      <p>Category: Shoes</p>
+    </div>
+    <div class="product" data-category="shirts">
+      <h3>Cotton Shirt</h3>
+      <p>Category: Shirts</p>
+    </div>
+    <div class="product" data-category="shirts">
+      <h3>Denim Shirt</h3>
+      <p>Category: Shirts</p>
+    </div>
+    <div class="product" data-category="gadgets">
+      <h3>Smart Watch</h3>
+      <p>Category: Gadgets</p>
+    </div>
+    <div class="product" data-category="gadgets">
+      <h3>Wireless Earbuds</h3>
+      <p>Category: Gadgets</p>
+    </div>
+    <div class="product" data-category="books">
+      <h3>The Alchemist</h3>
+      <p>Category: Books</p>
+    </div>
+    <div class="product" data-category="books">
+      <h3>Harry Potter</h3>
+      <p>Category: Books</p>
+    </div>
+  </div>
+
+  <script>
+    const filter = document.getElementById("filter");
+    const products = document.querySelectorAll(".product");
+
+    filter.addEventListener("change", function() {
+      const category = this.value;
+
+      products.forEach(product => {
+        if (category === "all" || product.dataset.category === category) {
+          product.style.display = "block";
+        } else {
+          product.style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

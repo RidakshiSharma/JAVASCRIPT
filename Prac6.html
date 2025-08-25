@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Drawing Tool</title>
+</head>
+<body style="text-align:center; font-family:Arial, sans-serif; background:#f4f4f4;">
+
+  <h1 style="color:#333; margin-top:20px;">🎨 SVG Drawing Tool</h1>
+
+  <svg id="canvas" width="800" height="500" style="border:2px solid #333; background:white; cursor:crosshair;"></svg>
+
+  <br><br>
+  <button id="clearBtn" style="padding:10px 20px; font-size:16px; border:none; border-radius:5px; background:#ff4d4d; color:white; cursor:pointer;">
+    Clear Canvas
+  </button>
+
+  <script>
+    const svg = document.getElementById("canvas");
+    const clearBtn = document.getElementById("clearBtn");
+    let drawing = false;
+    let currentPath = null;
+
+    svg.addEventListener("mousedown", (e) => {
+      drawing = true;
+      const x = e.offsetX;
+      const y = e.offsetY;
+
+      // Create a new path
+      currentPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      currentPath.setAttribute("d", `M ${x} ${y}`);
+      currentPath.setAttribute("stroke", "black");
+      currentPath.setAttribute("stroke-width", 2);
+      currentPath.setAttribute("fill", "none");
+
+      svg.appendChild(currentPath);
+    });
+
+    svg.addEventListener("mousemove", (e) => {
+      if (!drawing || !currentPath) return;
+
+      const x = e.offsetX;
+      const y = e.offsetY;
+
+      // Append line segment to path
+      let d = currentPath.getAttribute("d");
+      currentPath.setAttribute("d", d + ` L ${x} ${y}`);
+    });
+
+    svg.addEventListener("mouseup", () => {
+      drawing = false;
+      currentPath = null;
+    });
+
+    svg.addEventListener("mouseleave", () => {
+      drawing = false;
+      currentPath = null;
+    });
+
+    // Clear canvas button
+    clearBtn.addEventListener("click", () => {
+      while (svg.firstChild) {
+        svg.removeChild(svg.firstChild);
+      }
+    });
+  </script>
+</body>
+</html>
+
+
